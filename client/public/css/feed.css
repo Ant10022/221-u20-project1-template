@@ -51,6 +51,7 @@ a {
 #newsfeed {
 	max-width: 600px;
 	min-width: 600px;
+	text-align: center;
 }
 
 .feedImage {
