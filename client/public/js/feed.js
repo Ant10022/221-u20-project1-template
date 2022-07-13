@@ -2,9 +2,9 @@
 document.getElementById("portal_button").addEventListener("click", () => goToLocation("https://chess.com"));
 
 // creating an item in the feed
-function feedItem(title, body, linkUrl, imageUrl, date){
+function feedItem(title, story, linkUrl, imageUrl, date){
     this.title = title;
-    this.body = body;
+    this.story = story;
     this.linkUrl = linkUrl;
     this.imageUrl = imageUrl;
     this.date = date;
@@ -37,15 +37,37 @@ let story3 = new feedItem(
 let currentStories = [story1, story2, story3];
 
 // Displays a bit of the feed
-let displayItem = function(feedbit){
+let displayFeedItem = function(feedbit){
     document.getElementById(("newsfeed")).innerHTML += 
     //Inserting HTML and object values
-    "<div> <h2>" + feedbit.title + "</h2> <img class = feedImg src = " + feedbit.imageUrl + "></img> <br/> <p>" + feedbit.body + "</p> <a href = " + feedbit.linkUrl + "> Find Out More Now!</a> <br/> <span class = date> Written on: " + feedbit.date + "</span> <hr/> </div>";
+    "<div> <h2>" + feedbit.title + "</h2> <img class = feedImg src = " + feedbit.imageUrl + "></img> <br/> <p>" + feedbit.story + "</p> <a href = " + feedbit.linkUrl + "> Find Out More Now!</a> <br/> <span class = date> Written on: " + feedbit.date + "</span> <hr/> </div>";
 }
 
-// on load, loops for all the stories in an array, passing an object as a "feedbit"
+// on load, loops for all the currentStories in an array, passing an object as a "feedbit"
 window.addEventListener("load", () => {
 for(var i = 0; i < currentStories.length; i++){
-    displayItem(currentStories[i]);
+    displayFeedItem(currentStories[i]);
 }});
 
+// creating a chess game
+function game(event, date, site, whitePlayer, blackPlayer, result, toMove, imageFEN, gameURL, description){
+    this.event = event;
+    this.date = date;
+    this.site = site;
+    this.whitePlayer = whitePlayer;
+    this.blackPlayer = blackPlayer;
+    this.result = result;
+    this.toMove = toMove;
+    this.imageFEN = imageFEN;
+    this.gameURL = gameURL;
+    this.description = description;
+}
+
+let game1 = new game(
+    "Spassky-Fischer World Chess Championship", "07/23/1972","Reykjavik, Iceland",
+    "Robert Fischer", "Boris Spassky", "1-0",
+    "White", "/images/Fischer-Spassky.JPG", "https://lichess.org/study/1NfvLR0O/Jvt6zMGz#39",
+    'Game 6 of the World Championship match between Soviet Boris Spassky and American Robert "Bobby" Fischer signals a turning point, as Spassky never recovers from this defeat, marking the end of 24 years of Soviet dominance over the World Championship.'
+)
+
+let gamefeed = [game1];
