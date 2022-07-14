@@ -92,7 +92,7 @@ let game4 = new game(
 
 let games = [game1, game2, game3, game4];
 
-let displayGame = function(id, board){
+let displayGame = function(id,board){
     document.getElementById((id)).innerHTML += 
     //Inserting HTML and object values
     "<div> <div class = event>" + board.event + "</div> <div class = setting>" + board.site + ", " + board.date + "</div> <div class = gameTitle>" + board.playerWhite + " vs. " + board.playerBlack + "</div> <div class = result>" + board.result + "</div> <img class = gameFEN src = '" + board.imageFEN + "'></img> <div class = toMove>" + board.toMove + " to Move</div> <a href = " + board.gameURL + ">See the rest of the game here.</a> <p class = gameText>" + board.description + "</p> <hr/> </div>";
