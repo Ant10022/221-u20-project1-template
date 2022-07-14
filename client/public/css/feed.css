@@ -47,18 +47,39 @@ a {
 	bottom: 5px;
 }
 
-#newsfeed {
-	max-width: 600px;
-	min-width: 600px;
-	margin: auto;
-	text-align: justify;
+#gamesOTWLeft{
+	float: left;
+	width: 25%;
+	margin-left: 2.5%;
 	justify-content: center;
 }
 
-#title{
-	justify-content: left;
-	text-align: left;
-	margin-left: 450px;
+#newsfeed {
+	float: center;
+	width: 40%;
+	margin: auto;
+	justify-content: center;
+}
+
+#gamesOTWRight{
+	float: right;
+	width: 25%;
+	margin-right: 2.5%;
+	justify-content: center;
+}
+
+#titleLeft, #titleMain, #titleRight{
+	text-align: center;
+}
+
+.feedTitle{
+	font-size: 26px;
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+.feedText{
+	font-size: 18px;
 }
 
 .feedImg {
@@ -68,6 +89,53 @@ a {
 
 .date{
 	font-size: 14px;
+}
+
+.event{
+	text-align: center;
+	font-weight: bold;
+	font-size: 26px;
+	padding-bottom: 5px;
+}
+
+.setting{
+	text-align: center;
+	font-size: 22px;
+	padding-bottom: 5px;
+}
+
+.gameTitle{
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
+	padding-top: 5px;
+	padding-bottom: 1px;
+}
+
+.result{
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
+	padding-bottom: 3px;
+}
+
+.gameFEN{
+	width: 200px;
+	height: 200px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	border: solid black 1px;
+}
+
+.toMove{
+	padding-top: 5px;
+	text-align:center;
+	font-style: italic;
+}
+
+.gameText{
+	font-size: 15px;
 }
 
 #footlink{

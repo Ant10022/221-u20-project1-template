@@ -9,7 +9,7 @@ exports.getGames = function(req, res) {
 }
 
 exports.saveGame = function(req, res) {
-	let newGame = game.createGame(req.body.event, req.body.date, req.body.site, req.body.whitePlayer, req.body.blackPlayer, req.body.result, req.body.toMove, req.body.imageFEN, req.body.gameURL, req.body.description);
+	let newGame = game.createGame(req.body.event, req.body.site, req.body.date, req.body.playerWhite, req.body.playerBlack, req.body.result, req.body.toMove, req.body.imageFEN, req.body.gameURL, req.body.description);
 	games.push(newGame);
 	res.setHeader('Content-Type', 'application/json');
 	res.send(games);
@@ -27,7 +27,7 @@ exports.deleteGame = function(req, res) {
 }
 
 exports.fullupdateGame = function(req, res){
-	games[req.params.Gameid] = game.createGame(req.body.event, req.body.date, req.body.site, req.body.whitePlayer, req.body.blackPlayer, req.body.result, req.body.toMove, req.body.imageFEN, req.body.gameURL, req.body.description);
+	games[req.params.Gameid] = game.createGame(req.body.event, req.body.site, req.body.date, req.body.playerWhite, req.body.playerBlack, req.body.result, req.body.imageFEN, req.body.toMove, req.body.gameURL, req.body.description);
 	res.setHeader('Content-Type', 'application/json');
 	res.send(games);
 }
@@ -39,20 +39,20 @@ exports.updateGame = function(req, res) {
 	// check to see what has been passed and update the local copy
 	if(req.body.event)
 		updatedGame.event = req.body.event;
-	if(req.body.date)
-		updatedGame.date = req.body.date;
 	if(req.body.site)
 		updatedGame.site = req.body.site;
-	if(req.body.whitePlayer)
-		updatedGame.whitePlayer = req.body.whitePlayer;
-    if(req.body.blackPlayer)
-		updatedGame.blackPlayer = req.body.blackPlayer;
+	if(req.body.date)
+		updatedGame.date = req.body.date;
+	if(req.body.playerWhite)
+		updatedGame.playerWhite = req.body.playerWhite;
+    if(req.body.playerBlack)
+		updatedGame.playerBlack = req.body.playerBlack;
     if(req.body.result)
 		updatedGame.result = req.body.result;
-	if(req.body.toMove)
-		updatedGame.toMove = req.body.toMove;
 	if(req.body.imageFEN)
 		updatedGame.imageFEN = req.body.imageFEN;
+	if(req.body.toMove)
+		updatedGame.toMove = req.body.toMove;
 	if(req.body.gameURL)
 		updatedGame.gameURL = req.body.gameURL;
     if(req.body.description)
