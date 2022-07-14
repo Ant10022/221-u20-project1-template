@@ -92,14 +92,8 @@ let game4 = new game(
 
 let games = [game1, game2, game3, game4];
 
-let displayGameLeft = function(board){
-    document.getElementById(("gamesOTWLeft")).innerHTML += 
-    //Inserting HTML and object values
-    "<div> <div class = event>" + board.event + "</div> <div class = setting>" + board.site + ", " + board.date + "</div> <div class = gameTitle>" + board.playerWhite + " vs. " + board.playerBlack + "</div> <div class = result>" + board.result + "</div> <img class = gameFEN src = '" + board.imageFEN + "'></img> <div class = toMove>" + board.toMove + " to Move</div> <a href = " + board.gameURL + ">See the rest of the game here.</a> <p class = gameText>" + board.description + "</p> <hr/> </div>";
-}
-
-let displayGameRight = function(board){
-    document.getElementById(("gamesOTWRight")).innerHTML += 
+let displayGame = function(id, board){
+    document.getElementById((id)).innerHTML += 
     //Inserting HTML and object values
     "<div> <div class = event>" + board.event + "</div> <div class = setting>" + board.site + ", " + board.date + "</div> <div class = gameTitle>" + board.playerWhite + " vs. " + board.playerBlack + "</div> <div class = result>" + board.result + "</div> <img class = gameFEN src = '" + board.imageFEN + "'></img> <div class = toMove>" + board.toMove + " to Move</div> <a href = " + board.gameURL + ">See the rest of the game here.</a> <p class = gameText>" + board.description + "</p> <hr/> </div>";
 }
@@ -107,9 +101,9 @@ let displayGameRight = function(board){
 window.addEventListener("load", () => { 
     for(let i = 0; i < games.length; i++){
         if(i%2 == 0){
-            displayGameLeft(games[i]);
+            displayGame("gamesOTWLeft", games[i]);
         }
         if(i%2 == 1){
-            displayGameRight(games[i]);
+            displayGame("gamesOTWRight", games[i]);
         }
 }});
