@@ -1,3 +1,4 @@
+// model feed item
 function feedItem(title, story, linkUrl, imageUrl, date){
     this.title = title;
     this.story = story;

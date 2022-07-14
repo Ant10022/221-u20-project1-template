@@ -7,6 +7,7 @@ const app = express();
 app.use(bodyParser.json({type:'application/json'}));
 app.use(express.static('client/public'));
 
+// establishes routes for different methods sent to the feed API
 app.route('/api/FIs')
 	.get((req, res) => {
         feedController.getFIs(req, res);
@@ -27,6 +28,7 @@ app.route('/api/FIs/:FIid')
     .put((req, res) => {
         feedController.fullUpdateFI(req, res);
     })
+// establishes routes for different methods sent to the game API
 app.route('/api/Games')
 	.get((req, res) => {
         gameController.getGames(req, res);
@@ -48,6 +50,7 @@ app.route('/api/Games/:Gameid')
         gameController.fullUpdateGame(req, res);
     })
 
+// gives the html files when the route is typed in
 app.get('/', function(req, res) {
     res.sendFile('index.html', {root: './client/views'})
 });

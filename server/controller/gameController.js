@@ -28,11 +28,13 @@ let game4 = game.createGame(
     "Game 6 of the 2013 World Championship match between Norwegian GM Magnus Carlsen and Indian GM Viswanathan Anand evolved from a solid position, one from the Berlin Defense line of the Ruy Lopez, with Carlsen gaining a slight advantage in the latter half of the middle game. Ultimately, after a long and tantalizing rook endgame, Carlsen capitalized on his positional advantages, causing Anand to resign, allowing for Carlsen's 9 year ongoing reign as World Chess Champion to begin."
 )
 
+//pushes games to the games array
 games.push(game1);
 games.push(game2);
 games.push(game3);
 games.push(game4);
 
+// sets definitions of method inputs from the request
 exports.getGames = function(req, res) {
 	res.setHeader('Content-Type', 'application/json');
 	res.send(games);

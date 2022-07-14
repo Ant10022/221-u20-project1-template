@@ -1,3 +1,4 @@
+// model game
 function game(event, site, date, playerWhite, playerBlack, result, imageFEN, toMove, gameURL, description){
     this.event = event;
     this.site = site;

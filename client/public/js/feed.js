@@ -64,7 +64,7 @@ function game(event, site, date, playerWhite, playerBlack, result, toMove, image
     this.gameURL = gameURL;
     this.description = description;
 }
-
+//creating games client side
 let game1 = new game(
     "Spassky-Fischer World Chess Championship", "Reykjavik, Iceland", "07/23/1972",
     "Robert Fischer", "Boris Spassky", "1-0",
@@ -92,12 +92,14 @@ let game4 = new game(
 
 let games = [game1, game2, game3, game4];
 
-let displayGame = function(id,board){
+//displays game according to id
+let displayGame = function(id, board){
     document.getElementById((id)).innerHTML += 
     //Inserting HTML and object values
     "<div> <div class = event>" + board.event + "</div> <div class = setting>" + board.site + ", " + board.date + "</div> <div class = gameTitle>" + board.playerWhite + " vs. " + board.playerBlack + "</div> <div class = result>" + board.result + "</div> <img class = gameFEN src = '" + board.imageFEN + "'></img> <div class = toMove>" + board.toMove + " to Move</div> <a href = " + board.gameURL + ">See the rest of the game here.</a> <p class = gameText>" + board.description + "</p> <hr/> </div>";
 }
 
+//displaying odd indexed games to the left, and even ones to the right
 window.addEventListener("load", () => { 
     for(let i = 0; i < games.length; i++){
         if(i%2 == 0){
